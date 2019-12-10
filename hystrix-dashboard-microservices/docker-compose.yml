@@ -1,0 +1,30 @@
+version: '3'
+services:
+  central:
+    network_mode: host
+    image: microservico
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8083:8080
+
+    depends_on:
+      - microservicotwitter
+      - microservicogithub
+  microservicotwitter:
+    image: microservicotwitter
+    build:
+      context: ./microservicotwitter
+      dockerfile: Dockerfile
+    ports:
+      - 8081:8080
+
+  microservicogithub:
+    image: microservicogithub
+    build:
+      context: ./microservicogithub
+      dockerfile: Dockerfile
+    ports:
+      - 8082:8080
+

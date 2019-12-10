@@ -1,0 +1,52 @@
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'eclipse'
+
+version = '1.0'
+sourceCompatibility = 1.8
+
+mainClassName = "com.github.diegopacheco.sandbox.java.netflixoss.karyon.ServerRunner"
+applicationDefaultJvmArgs = [
+								 "-Djava.net.preferIPv4Stack=true",
+								 "-Djava.net.preferIPv6Addresses=false",
+								 "-server",
+								 "-Xmx2048m",
+								 "-Xms128m" 
+							]
+
+repositories {
+	jcenter()
+	mavenLocal()
+}
+
+buildscript {
+	repositories {
+			jcenter()
+			mavenLocal()
+	}
+}
+
+eclipse {
+	classpath {
+		downloadSources = true
+	}
+}
+
+def karyonVersion = '2.7.2'
+def slf4jVersion = '1.7.12'
+
+dependencies {
+	compile([
+			  'ch.qos.logback:logback-classic:1.0.13',
+			  "org.slf4j:slf4j-log4j12:${slf4jVersion}",
+			  "org.slf4j:slf4j-jdk14:${slf4jVersion}",
+			  "com.netflix.karyon:karyon2-core:${karyonVersion}",
+			  "com.netflix.karyon:karyon2-jersey-blocking:${karyonVersion}",
+			  "com.netflix.karyon:karyon2-archaius:${karyonVersion}",
+			  "com.netflix.karyon:karyon2-servo:${karyonVersion}",
+			  "com.netflix.karyon:karyon2-admin-web:${karyonVersion}",
+			  "com.netflix.karyon:karyon2-eureka:${karyonVersion}",
+			  'com.sun.jersey:jersey-client:1.18.4'		  
+		    ])
+    
+}

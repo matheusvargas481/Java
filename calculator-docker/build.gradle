@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+    id 'war'
+}
+
+group = 'com.ilegra'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+def springBootVersion = '5.1.8.RELEASE'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.springframework', name: 'spring-context', version: springBootVersion
+    compile group: 'org.springframework', name: 'spring-core', version: springBootVersion
+    compile group: 'org.springframework', name: 'spring-beans', version: springBootVersion
+    compile group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
+
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.1.6.RELEASE'
+}

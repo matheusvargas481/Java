@@ -1,0 +1,14 @@
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="2.5">
+    <servlet>
+        <servlet-name>CalculadoraServlet</servlet-name>
+        <servlet-class>com.matheusvargas481.cloudnative.tema4.CalculadoraServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CalculadoraServlet</servlet-name>
+        <url-pattern>/calculadora</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HistoricoServlet</servlet-name>
+        <url-pattern>/historico</url-pattern>
+    </servlet-mapping>
+</web-app>
